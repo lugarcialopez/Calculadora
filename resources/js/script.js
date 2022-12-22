@@ -33,12 +33,21 @@ function divideNumeros(num1,num2) {
     return num1/num2;
     
 }
+function exponenciarNumeros(num1,num2) {
+    return num1**num2;
+
+}
+
+function raizNumeros(num1,num2) {
+    num2=1/num2;
+    return num1**num2;
+}
 
 function imprimir(a) {
     texto=texto+a;
     document.getElementById("mostrar").innerHTML=texto;
     if (numero1!=null) {
-        textoAuxiliar=textoAuxiliar+a
+        textoAuxiliar=textoAuxiliar+a;
     }
     /*12+25
     number1= 12;
@@ -52,15 +61,14 @@ function operador(a) {
     numero1=parseInt(texto);
     //parsInt-->convertir un texto que tenga sentido como número. Convertirlo a número-
     texto=texto+a;
-    operando=a
+    operando=a;
     document.getElementById("mostrar").innerHTML=texto;
     textoAuxiliar="";
 }
 
 function resultadoFinal()
 {
-    numero1;
-    numero2;
+    numero2=parseInt(textoAuxiliar);
 
     if (operando=="+") {
         resultado=sumaNumeros(numero1,numero2);
@@ -74,11 +82,23 @@ function resultadoFinal()
         resultado=multiplicaNumeros(numero1,numero2);
     }
 
-    else if (operando="//") {
+    else if (operando=="/") {
         resultado=divideNumeros(numero1,numero2);
     }
 
-    document.getElementById("mostrar").innerHTML=resultado
+    else if (operando=="**") {
+        resultado=exponenciarNumeros(numero1,numero2);
+    }
+
+    else if(operando=="r") {
+        resultado=raizNumeros(numero1,numero2);
+    }
+    document.getElementById("mostrar").innerHTML=resultado;
+    texto="";
+    textoAuxiliar= "";
+    numero1=null;
+    numero2=null
+    //se coloca de nuevo para realizar un clear
 
 
 
